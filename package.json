@@ -2,6 +2,10 @@
 	"name": "vscode-js-console",
 	"displayName": "vscode-js-console",
 	"description": "Help insert and remove console.(*) statements",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zqcccc/vscode-js-console.git"
+	},
 	"publisher": "zqcccc",
 	"version": "0.0.1",
 	"engines": {
