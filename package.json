@@ -1,0 +1,64 @@
+{
+	"name": "vscode-js-console",
+	"displayName": "vscode-js-console",
+	"description": "Help insert and remove console.(*) statements",
+	"publisher": "zqcccc",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.52.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.insertLogStatement",
+		"onCommand:extension.deleteAllLogStatements"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.insertLogStatement",
+				"title": "insert js log (插入一行或多行 js log)"
+			},
+			{
+				"command": "extension.deleteAllLogStatements",
+				"title": "delete visible TextEditors js log (删除打开的所有编辑窗口里的 js log)"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.insertLogStatement",
+				"key": "shift+ctrl+v",
+				"mac": "shift+cmd+v",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.deleteAllLogStatements",
+				"key": "shift+ctrl+d",
+				"mac": "shift+cmd+d"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.52.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.15.0",
+		"@typescript-eslint/eslint-plugin": "^4.9.0",
+		"@typescript-eslint/parser": "^4.9.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.1.2",
+		"vscode-test": "^1.4.1"
+	}
+}
