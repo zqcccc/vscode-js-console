@@ -1,6 +1,6 @@
 # VSCode JS Console
 
-Links: [Github](https://github.com/) | [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=vscode-js-console) | [issues](https://github.com//issues)
+Links: [Github](https://github.com/zqcccc/vscode-js-console) | [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=zqcccc.vscode-js-console) | [issues](https://github.com/zqcccc/vscode-js-console/issues)
 
 ## Features
 
