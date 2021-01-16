@@ -7,13 +7,17 @@
 		"url": "https://github.com/zqcccc/vscode-js-console.git"
 	},
 	"publisher": "zqcccc",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"engines": {
 		"vscode": "^1.52.0"
 	},
 	"categories": [
 		"Other"
 	],
+	"icon": "assets/icon.png",
+	"galleryBanner": {
+		"color": "#EEEEEE"
+	},
 	"activationEvents": [
 		"onCommand:extension.insertLogStatement",
 		"onCommand:extension.deleteAllLogStatements"
