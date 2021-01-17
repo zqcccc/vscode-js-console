@@ -4,7 +4,7 @@ Links: [Github](https://github.com/zqcccc/vscode-js-console) | [Visual Studio Co
 
 ## Features
 
-![guide](./assets/guide.gif)
+![intro.gif](https://i.loli.net/2021/01/17/plJd4QkALH3CyMe.gif)
 
 support for multiple selections to console.log
 
