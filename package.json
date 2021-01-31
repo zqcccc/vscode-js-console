@@ -7,7 +7,7 @@
 		"url": "https://github.com/zqcccc/vscode-js-console.git"
 	},
 	"publisher": "zqcccc",
-	"version": "0.0.3",
+	"version": "0.0.5",
 	"engines": {
 		"vscode": "^1.52.0"
 	},
@@ -20,6 +20,7 @@
 	},
 	"activationEvents": [
 		"onCommand:extension.insertLogStatement",
+		"onCommand:extension.insertBrowserLogStatement",
 		"onCommand:extension.deleteAllLogStatements"
 	],
 	"main": "./out/extension.js",
@@ -30,6 +31,10 @@
 				"title": "insert js log (插入一行或多行 js log)"
 			},
 			{
+				"command": "extension.insertBrowserLogStatement",
+				"title": "insert browser js log (插入一行或多行 js log)"
+			},
+			{
 				"command": "extension.deleteAllLogStatements",
 				"title": "delete visible TextEditors js log (删除打开的所有编辑窗口里的 js log)"
 			}
@@ -38,13 +43,20 @@
 			{
 				"command": "extension.insertLogStatement",
 				"key": "shift+ctrl+v",
-				"mac": "shift+cmd+v",
+				"mac": "alt+cmd+v",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.insertBrowserLogStatement",
+				"key": "shift+ctrl+b",
+				"mac": "alt+cmd+b",
 				"when": "editorTextFocus"
 			},
 			{
 				"command": "extension.deleteAllLogStatements",
-				"key": "shift+ctrl+d",
-				"mac": "shift+cmd+d"
+				"key": "shift+ctrl+r",
+				"mac": "alt+cmd+r",
+				"when": "editorTextFocus"
 			}
 		]
 	},

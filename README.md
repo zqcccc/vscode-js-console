@@ -4,7 +4,7 @@ Links: [Github](https://github.com/zqcccc/vscode-js-console) | [Visual Studio Co
 
 ## Features
 
-![](https://i.loli.net/2021/01/17/xvUoKjWJbqwRSr1.gif)
+![](https://i.loli.net/2021/01/31/QODHkfeavZoynrA.gif)
 
 support for multiple selections to console.log
 
@@ -14,15 +14,20 @@ support for multiple selections to console.log
 
 With selection:
 * Highlight a variable (or really any text)
-* Press Cmd+Shift+V
+* Press Option+Cmd+v
 * The output will be: console.log('variable: ', variable);
 
+With selection:
+* Highlight a variable (or really any text)
+* Press Option+Cmd+b
+* The output will be a console.log that can be log in browser with color;
+
 Without selection:
-* Press Cmd+Shift+V
+* Press Cmd+Shift+v
 * The output will be: console.log();
 
 To remove console.logs:
-* Press Cmd+Shift+D
+* Press Cmd+Shift+r
 * This will delete all console.log statements in the current document
 
 ## Release Notes
