@@ -1,6 +1,22 @@
 import * as vscode from 'vscode'
 
 const colorList = [
+  '#19E99',
+  '#A8978E',
+  '#7D8590',
+  '#BAAC9A',
+  '#C5B37A',
+  '#9E9689',
+  '#CECAC1',
+  '#EDD8AB',
+  '#5A4E52',
+  '#83978C',
+  '#F7BC99',
+  '#553E2E',
+  '#B79981',
+  '#C5C4BC',
+  '#404B5D',
+  '#B1722D',
   '#42b983',
   '#33A5FF',
   '#B03734',
@@ -114,7 +130,7 @@ function getAllLogStatements(
 ): vscode.Range[] {
   let logStatements = []
 
-  const logRegex = /console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\((.*?)\);?\s?(\|\||&&|,)?/g
+  const logRegex = /console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\((.*?)\);?/g
   let match
   while ((match = logRegex.exec(documentText))) {
     let matchRange = new vscode.Range(
