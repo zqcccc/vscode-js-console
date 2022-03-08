@@ -4,6 +4,11 @@ All notable changes to the "vscode-js-console" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.7]
+
+1. remove inappropriate background color
+2. use text of clipborad if there is no selection
+
 ## [0.0.1]
 
 support for multiple selections to console.log.
