@@ -1,7 +1,6 @@
 import * as vscode from 'vscode'
 
 const colorList = [
-  '#19E99',
   '#A8978E',
   '#7D8590',
   '#BAAC9A',
@@ -71,10 +70,12 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() {
+  console.log('vscode-js-console deactivate')
+}
 
 function generateLogCommandFn(type = 'node'): (...args: any[]) => any {
-  return () => {
+  return async () => {
     const editor = vscode.window.activeTextEditor
     if (!editor) {
       vscode.window.showInformationMessage(
@@ -88,15 +89,21 @@ function generateLogCommandFn(type = 'node'): (...args: any[]) => any {
     // .map((text) =>
     //   text ? `console.log('${text}: ', ${text});` : 'console.log();'
     // );
+    const clipboardText = await vscode.env.clipboard.readText()
+
     vscode.commands.executeCommand('editor.action.insertLineAfter').then(() => {
       editor.edit((editBuilder) => {
         const newSelections = editor.selections
         if (newSelections.length > 0) {
-          newSelections.forEach((selection, i) => {
-            const text = texts[i]
-            const logToInsert = generateLogStatements(text, type)
-            const range = new vscode.Range(selection.start, selection.end)
-            editBuilder.replace(range, logToInsert)
+          newSelections.map(async (selection, i) => {
+            try {
+              const text = texts[i]
+              const logToInsert = generateLogStatements(text || clipboardText, type)
+              const range = new vscode.Range(selection.start, selection.end)
+              editBuilder.replace(range, logToInsert)
+            } catch (e) {
+              console.log('editBuilder.replace error', e)
+            }
           })
         }
       })
@@ -130,7 +137,8 @@ function getAllLogStatements(
 ): vscode.Range[] {
   let logStatements = []
 
-  const logRegex = /console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\((.*?)\);?/g
+  const logRegex =
+    /console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\((.*?)\);?/g
   let match
   while ((match = logRegex.exec(documentText))) {
     let matchRange = new vscode.Range(
